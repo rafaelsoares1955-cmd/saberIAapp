@@ -1,0 +1,25 @@
+{
+  "name": "SABERIA — Conecte-se ao conhecimento",
+  "short_name": "SABERIA",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07152E",
+  "theme_color": "#07152E",
+  "lang": "pt-BR",
+  "description": "Aplicativo de estudos do SABERIA com quizzes, foco, tarefas, progresso e a assistente Alia.",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
