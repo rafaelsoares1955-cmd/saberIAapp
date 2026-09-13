@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#165DFF">
+<meta name="description" content="SABERIA — seu espaço inteligente para estudar, acompanhar seu progresso e aprender com a Alia.">
+<link rel="manifest" href="./manifest.webmanifest">
+<title>SABERIA</title>
+<style>
+:root{--blue:#165DFF;--blue2:#0B3FBF;--bg:#F5F7FB;--card:#fff;--text:#152238;--muted:#718096;--line:#E7ECF3;--green:#18A66A;--orange:#F59E0B;--danger:#E5484D;--shadow:0 10px 30px rgba(23,45,80,.08)}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;background:var(--bg);color:var(--text)}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}.app{min-height:100vh;display:flex}.sidebar{width:260px;background:#fff;border-right:1px solid var(--line);padding:26px 16px;position:fixed;inset:0 auto 0 0;z-index:20}.brand{font-weight:900;font-size:28px;letter-spacing:-1px;color:var(--blue);padding:8px 12px 28px}.brand small{display:block;font-size:11px;letter-spacing:2px;color:var(--muted);margin-top:2px}.nav{display:grid;gap:8px}.nav button{background:transparent;text-align:left;padding:13px 14px;border-radius:14px;color:#52647d;font-weight:700}.nav button.active,.nav button:hover{background:#EEF4FF;color:var(--blue)}.profile-mini{position:absolute;bottom:20px;left:16px;right:16px;border-top:1px solid var(--line);padding:18px 8px}.avatar{width:40px;height:40px;border-radius:50%;background:#EAF0FF;color:var(--blue);display:grid;place-items:center;font-weight:900}.main{margin-left:260px;width:calc(100% - 260px);min-height:100vh}.topbar{height:76px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 34px;position:sticky;top:0;z-index:10}.topbar h1{font-size:23px;margin:0}.top-actions{display:flex;gap:10px;align-items:center}.icon-btn{width:42px;height:42px;border-radius:50%;background:#F2F5F9;color:#52647d}.content{max-width:1220px;margin:auto;padding:30px 34px 100px}.hero{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px}.hero h2{font-size:32px;margin:0 0 6px;letter-spacing:-1px}.hero p{margin:0;color:var(--muted)}.primary{background:var(--blue);color:#fff;border-radius:13px;padding:13px 18px;font-weight:800;box-shadow:0 8px 20px rgba(22,93,255,.22)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.stat{padding:20px}.stat .label{color:var(--muted);font-size:14px;font-weight:700}.stat .value{font-size:34px;font-weight:900;margin:7px 0}.stat .sub{font-size:12px;color:var(--muted)}.grid2{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:18px}.section{padding:22px}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.section h3{margin:0;font-size:19px}.muted{color:var(--muted)}.subjects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.subject{padding:15px;border:1px solid var(--line);border-radius:16px}.subject-row{display:flex;justify-content:space-between;gap:10px}.subject strong{font-size:15px}.bar{height:8px;background:#EDF1F7;border-radius:99px;overflow:hidden;margin-top:12px}.bar i{display:block;height:100%;background:var(--blue);border-radius:99px}.task{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.task:last-child{border:0}.check{width:22px;height:22px;border-radius:7px;border:2px solid #C9D3E1;background:#fff}.check.done{background:var(--green);border-color:var(--green);color:#fff;display:grid;place-items:center}.task.done span{text-decoration:line-through;color:#9AA6B6}.page{display:none}.page.active{display:block}.panel{padding:24px}.form{display:grid;gap:12px}.input{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px;background:#fff;outline:none}.input:focus{border-color:var(--blue)}.quiz-q{font-size:20px;font-weight:800;line-height:1.35;margin-bottom:16px}.answers{display:grid;gap:10px}.answer{padding:14px;text-align:left;border:1px solid var(--line);background:#fff;border-radius:13px}.answer.correct{border-color:var(--green);background:#EAF9F2}.answer.wrong{border-color:var(--danger);background:#FFF0F0}.timer{font-size:76px;font-weight:900;text-align:center;letter-spacing:-4px}.timer-controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.pill{padding:9px 13px;border-radius:999px;background:#EEF4FF;color:var(--blue);font-weight:800}.achievement{display:flex;gap:13px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:15px}.badge{width:46px;height:46px;border-radius:14px;background:#FFF4D6;display:grid;place-items:center;font-size:23px}.settings-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.setting{padding:18px}.alia-fab{position:fixed;right:24px;bottom:92px;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,#165DFF,#7B61FF);color:#fff;box-shadow:0 14px 35px rgba(22,93,255,.35);z-index:50;font-weight:900;font-size:18px;border:4px solid #fff}.alia-fab span{display:block;font-size:9px;letter-spacing:.5px}.alia-window{position:fixed;right:24px;bottom:166px;width:min(380px,calc(100vw - 32px));height:520px;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 24px 70px rgba(20,38,70,.2);z-index:49;display:none;overflow:hidden}.alia-window.open{display:flex;flex-direction:column}.alia-head{background:linear-gradient(135deg,#165DFF,#5D48D8);color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}.alia-messages{flex:1;padding:14px;overflow:auto;background:#F7F9FC}.msg{max-width:84%;padding:11px 13px;border-radius:16px;margin:7px 0;line-height:1.4;font-size:14px}.msg.bot{background:#fff;border:1px solid var(--line)}.msg.user{margin-left:auto;background:#165DFF;color:#fff}.alia-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}.alia-input input{flex:1}.bottomnav{display:none}
+/* Microinterações SABERIA */
+@keyframes pageIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@keyframes cardIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(.92)}60%{transform:scale(1.04)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+@keyframes fabPulse{0%,100%{box-shadow:0 14px 35px rgba(22,93,255,.35)}50%{box-shadow:0 14px 42px rgba(22,93,255,.52)}}
+.page.active{animation:pageIn .22s ease-out}
+.card{transition:transform .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-2px)}
+.primary,.pill,.icon-btn,.answer,.check{transition:transform .12s ease,box-shadow .12s ease}
+.primary:active,.pill:active,.icon-btn:active,.answer:active,.check:active{transform:scale(.97)}
+.stat .value{transition:transform .2s ease}
+.stat:hover .value{animation:pop .35s ease}
+.answer.correct{animation:pop .28s ease}
+.answer.wrong{animation:shake .28s ease}
+.task .check.done{animation:pop .25s ease}
+.alia-fab{animation:fabPulse 2.8s ease-in-out infinite}
+.confetti-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:120}
+.confetti-piece{position:absolute;top:-14px;width:7px;height:11px;border-radius:2px;animation:confettiFall var(--fall) cubic-bezier(.15,.75,.35,1) forwards;transform:translate3d(0,0,0) rotate(0deg)}
+@keyframes confettiFall{0%{opacity:1;transform:translate3d(0,0,0) rotate(0deg)}100%{opacity:0;transform:translate3d(var(--x),var(--y),0) rotate(var(--r))}}
+
+.auth-gate{position:fixed;inset:0;background:linear-gradient(135deg,#f5f7fb 0%,#eaf1ff 100%);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;overflow:auto}.auth-gate.open{display:flex}.auth-card{width:min(440px,100%);background:#fff;border:1px solid var(--line);border-radius:28px;padding:30px;box-shadow:0 24px 70px rgba(20,38,70,.18);animation:cardIn .25s ease-out}.auth-logo{font-size:30px;font-weight:950;letter-spacing:-1.5px;color:var(--blue);text-align:center}.auth-tag{text-align:center;color:var(--muted);font-size:13px;margin:5px 0 24px}.auth-tabs{display:grid;grid-template-columns:1fr 1fr;background:#F2F5F9;border-radius:12px;padding:4px;margin-bottom:18px}.auth-tab{padding:10px;border-radius:9px;background:transparent;color:var(--muted);font-weight:800}.auth-tab.active{background:#fff;color:var(--blue);box-shadow:0 2px 8px rgba(20,38,70,.08)}.auth-note{font-size:11px;line-height:1.45;color:var(--muted);margin-top:15px;text-align:center}.auth-form{display:grid;gap:10px}.quiz-start{display:grid;gap:12px;margin-top:18px}.quiz-select{width:100%;border:1px solid var(--line);border-radius:13px;padding:13px;background:var(--card);color:var(--text);outline:none}.quiz-select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(22,93,255,.1)}.quiz-select-label{font-size:12px;font-weight:800;color:var(--muted);display:block;margin-bottom:6px}.quiz-choice-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.home-avatar{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#EAF0FF;color:var(--blue);font-size:26px;font-weight:900;overflow:hidden;border:3px solid #fff;box-shadow:0 5px 18px rgba(20,38,70,.12)}.home-avatar img{width:100%;height:100%;object-fit:cover}.profile-avatar-wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.profile-avatar{width:86px;height:86px;border-radius:50%;display:grid;place-items:center;background:#EAF0FF;color:var(--blue);font-size:38px;font-weight:900;overflow:hidden;border:3px solid #fff;box-shadow:0 5px 18px rgba(20,38,70,.12)}.profile-avatar img{width:100%;height:100%;object-fit:cover}.avatar-options{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.avatar-choice{width:42px;height:42px;border-radius:50%;background:#EEF4FF;color:var(--blue);font-size:22px}.avatar-choice.selected{outline:3px solid rgba(22,93,255,.2);background:#DCE8FF}.profile-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+
+.toast{position:fixed;left:50%;bottom:25px;transform:translateX(-50%) translateY(20px);background:#172238;color:#fff;padding:12px 17px;border-radius:13px;opacity:0;pointer-events:none;transition:.25s;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.empty{padding:25px;text-align:center;color:var(--muted)}.modal{position:fixed;inset:0;background:rgba(10,20,40,.45);display:none;place-items:center;z-index:80;padding:20px}.modal.open{display:grid}.modal-box{background:#fff;border-radius:22px;width:min(500px,100%);padding:24px}.modal-head{display:flex;justify-content:space-between;align-items:center}.modal-head h3{margin:0}.dark{--bg:#0D1422;--card:#151E2E;--text:#F4F7FC;--muted:#9AA7BA;--line:#253147}.dark .topbar,.dark .sidebar,.dark .input,.dark .answer,.dark .alia-window,.dark .modal-box{background:#151E2E}.dark .subject,.dark .achievement{border-color:#29364C}.dark .alia-messages{background:#0F1725}.dark .stat .sub{color:#9AA7BA}
+@media(max-width:850px){.sidebar{display:none}.main{margin:0;width:100%}.topbar{padding:0 18px;height:68px}.content{padding:22px 16px 110px}.hero h2{font-size:27px}.hero{align-items:flex-start}.stats{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.subjects{grid-template-columns:1fr}.bottomnav{display:flex;position:fixed;left:10px;right:10px;bottom:10px;height:66px;background:rgba(255,255,255,.94);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:22px;z-index:40;box-shadow:0 12px 35px rgba(30,50,80,.16);justify-content:space-around}.bottomnav button{background:transparent;color:#8A98AA;font-size:11px;font-weight:800}.bottomnav button.active{color:var(--blue)}.bottomnav .bi{font-size:21px;display:block;margin-bottom:2px}.alia-fab{right:18px;bottom:88px}.alia-window{right:12px;bottom:164px;height:calc(100vh - 205px);max-height:560px}.settings-grid{grid-template-columns:1fr}.timer{font-size:64px}}
+
+/* SABERIA opening animation */
+.splash-screen{
+  position:fixed; inset:0; z-index:99999;
+  display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(circle at 50% 45%, #061b48 0%, #020916 42%, #01040a 100%);
+  opacity:1; visibility:visible;
+  transition:opacity .42s ease, visibility .42s ease;
+  overflow:hidden;
+}
+.splash-screen::after{
+  content:""; position:absolute; inset:-20%;
+  background:radial-gradient(circle at 50% 45%, rgba(31,127,255,.13), transparent 27%);
+  pointer-events:none;
+}
+.splash-inner{
+  position:relative; z-index:1; width:min(82vw,420px); text-align:center;
+  transform:translateY(10px); opacity:0;
+  animation:splashElementsIn .58s cubic-bezier(.22,.75,.25,1) .10s forwards;
+}
+.splash-mark{height:190px; position:relative; display:flex; align-items:flex-end; justify-content:center;}
+.splash-book{position:relative; width:170px; height:112px; margin-bottom:20px; filter:drop-shadow(0 0 13px rgba(42,154,255,.55));}
+.splash-book span{position:absolute; display:block; border:7px solid #43b8ff;}
+.book-left{left:5px; top:7px; width:73px; height:83px; border-right-width:3px!important; border-radius:8px 4px 2px 14px; transform:skewY(-7deg);}
+.book-right{right:5px; top:7px; width:73px; height:83px; border-left-width:3px!important; border-radius:4px 8px 14px 2px; transform:skewY(7deg);}
+.book-spine{left:82px; top:18px; width:0; height:78px; border-width:0 3px 0 0!important; transform:rotate(2deg); box-shadow:0 0 8px rgba(85,190,255,.7);}
+.splash-star{
+  position:absolute; z-index:2; top:0; left:50%; transform:translateX(-50%) scale(.25);
+  color:#fff; font-size:54px; line-height:1;
+  opacity:0; filter:drop-shadow(0 0 0 rgba(68,164,255,0));
+}
+.splash-screen.star-on .splash-star{
+  animation:splashStarGlow .85s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.splash-title{
+  margin-top:4px; color:#fff; font-size:44px; font-weight:500; letter-spacing:.16em;
+  text-indent:.16em; text-shadow:0 0 18px rgba(88,182,255,.28);
+}
+.splash-tagline{
+  margin-top:16px; color:#43b8ff; font-size:15px; line-height:1.55;
+  letter-spacing:.08em; opacity:.96;
+}
+.splash-screen.splash-out{opacity:0; visibility:hidden; pointer-events:none;}
+@keyframes splashElementsIn{
+  from{opacity:0; transform:translateY(10px) scale(.985)}
+  to{opacity:1; transform:translateY(0) scale(1)}
+}
+@keyframes splashStarGlow{
+  0%{opacity:0; transform:translateX(-50%) scale(.25); filter:drop-shadow(0 0 0 rgba(68,164,255,0))}
+  35%{opacity:1; transform:translateX(-50%) scale(1.18); filter:drop-shadow(0 0 26px rgba(68,164,255,.95))}
+  65%{opacity:1; transform:translateX(-50%) scale(1); filter:drop-shadow(0 0 16px rgba(68,164,255,.75))}
+  100%{opacity:1; transform:translateX(-50%) scale(1); filter:drop-shadow(0 0 10px rgba(68,164,255,.55))}
+}
+@media (prefers-reduced-motion:reduce){
+  .splash-inner{animation:none; opacity:1; transform:none;}
+  .splash-screen.star-on .splash-star{animation:none; opacity:1; transform:translateX(-50%) scale(1);}
+  .splash-screen{transition:none;}
+}
+
+
+/* Native mobile safe areas */
+:root{
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+}
+body{
+  padding-top: var(--safe-top);
+  padding-right: var(--safe-right);
+  padding-left: var(--safe-left);
+  padding-bottom: var(--safe-bottom);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+button, a, input, select, textarea{
+  touch-action: manipulation;
+}
+
+.password-row{position:relative;display:flex;align-items:center}.password-row .input{padding-right:82px}.password-toggle{position:absolute;right:8px;background:transparent;color:var(--blue);font-size:12px;font-weight:800;padding:8px}.dark .auth-gate{background:linear-gradient(135deg,#091326 0%,#0F1C33 100%)}.dark .auth-card{background:#111C2E;border-color:#24344E}.dark .auth-tabs{background:#0C1728}.dark .auth-tab.active{background:#17263D;color:#fff}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid rgba(22,93,255,.35);outline-offset:2px}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<!-- SABERIA animated splash -->
+<div id="saberiaSplash" class="splash-screen" aria-hidden="true">
+  <div class="splash-inner">
+    <div class="splash-mark">
+      <div class="splash-star" id="splashStar" aria-hidden="true">✦</div>
+      <div class="splash-book" aria-hidden="true">
+        <span class="book-left"></span><span class="book-right"></span><span class="book-spine"></span>
+      </div>
+    </div>
+    <div class="splash-title">SABERIA</div>
+    <div class="splash-tagline">Mais conhecimento,<br>mais possibilidades.</div>
+  </div>
+</div>
+
+<div class="auth-gate" id="authGate">
+  <div class="auth-card">
+    <div class="auth-logo">SABERIA</div>
+    <div class="auth-tag">Conecte-se ao conhecimento</div>
+    <div class="auth-tabs"><button class="auth-tab active" id="authLoginTab" onclick="switchAuth('login')">Entrar</button><button class="auth-tab" id="authCreateTab" onclick="switchAuth('create')">Criar conta</button></div>
+    <div id="authForm"></div>
+    <div class="auth-note">Sua conta de demonstração fica salva neste dispositivo. Para sincronização entre aparelhos, será necessário conectar um serviço de autenticação no backend.</div>
+  </div>
+</div>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand">SABERIA<small>CONECTE-SE AO CONHECIMENTO</small></div>
+  <nav class="nav" id="sideNav"></nav>
+  <div class="profile-mini"><div style="display:flex;gap:10px;align-items:center"><div class="avatar" id="sideAvatar">S</div><div><b id="sideName">Estudante</b><div class="muted" style="font-size:12px">Meu perfil</div></div></div></div>
+</aside>
+<main class="main">
+<header class="topbar"><h1 id="pageTitle">Início</h1><div class="top-actions"><button class="icon-btn" onclick="showPage('settings')" title="Configurações">⚙️</button><button class="icon-btn" onclick="toggleAlia()">✦</button></div></header>
+<div class="content">
+<section class="page active" id="page-home"></section>
+<section class="page" id="page-study"></section>
+<section class="page" id="page-quiz"></section>
+<section class="page" id="page-tasks"></section>
+<section class="page" id="page-progress"></section>
+<section class="page" id="page-profile"></section>
+<section class="page" id="page-settings"></section>
+</div>
+</main>
+</div>
+<nav class="bottomnav" id="bottomNav"></nav>
+
+<button class="alia-fab" onclick="toggleAlia()">✦<span>ALIA</span></button>
+<div class="alia-window" id="aliaWindow">
+  <div class="alia-head"><div><b>Alia</b><div style="font-size:12px;opacity:.8">Sua assistente de estudos</div></div><button onclick="toggleAlia()" style="background:transparent;color:#fff;font-size:22px">×</button></div>
+  <div class="alia-messages" id="aliaMessages"></div>
+  <div class="alia-input"><input class="input" id="aliaInput" placeholder="Pergunte algo..." onkeydown="if(event.key==='Enter')sendAlia()"><button class="primary" onclick="sendAlia()">Enviar</button></div>
+</div>
+<div class="modal" id="modal"><div class="modal-box" id="modalBox"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const KEY='saberia_v5_state';
+const subjects=['Matemática','Português','Ciências','História','Geografia','Inglês'];
+const questions=[
+{subject:'Matemática',q:'Quanto é 25% de 200?',a:['25', '40', '50', '75'],c:2},
+{subject:'Matemática',q:'Qual é o resultado de 7 × 8?',a:['48', '54', '56', '64'],c:2},
+{subject:'Matemática',q:'Se x + 7 = 15, então x =',a:['6', '7', '8', '9'],c:2},
+{subject:'Matemática',q:'Quanto é 3² + 4²?',a:['12', '25', '49', '16'],c:1},
+{subject:'Matemática',q:'Qual é a fração equivalente a 1/2?',a:['2/3', '3/6', '4/10', '5/12'],c:1},
+{subject:'Matemática',q:'Um produto de R$80 teve 10% de desconto. Qual é o preço final?',a:['R$70', 'R$72', 'R$74', 'R$78'],c:1},
+{subject:'Matemática',q:'Qual é o perímetro de um quadrado de lado 6 cm?',a:['12 cm', '18 cm', '24 cm', '36 cm'],c:2},
+{subject:'Matemática',q:'Qual é a média de 6, 8 e 10?',a:['7', '8', '9', '10'],c:1},
+{subject:'Matemática',q:'Quanto é 2/5 de 50?',a:['10', '15', '20', '25'],c:2},
+{subject:'Matemática',q:'Qual é o próximo número: 2, 4, 8, 16, ...?',a:['18', '24', '30', '32'],c:3},
+{subject:'Português',q:'Qual palavra é um substantivo?',a:['correr', 'bonito', 'escola', 'rapidamente'],c:2},
+{subject:'Português',q:'Em “A menina correu rapidamente”, “rapidamente” é:',a:['substantivo', 'verbo', 'adjetivo', 'advérbio'],c:3},
+{subject:'Português',q:'Qual é o verbo na frase “Os alunos estudaram”?',a:['alunos', 'os', 'estudaram', 'estudo'],c:2},
+{subject:'Português',q:'Qual palavra é um adjetivo?',a:['feliz', 'cantar', 'casa', 'ontem'],c:0},
+{subject:'Português',q:'Qual frase está corretamente pontuada?',a:['Vamos estudar hoje.', 'Vamos estudar hoje,', 'Vamos, estudar hoje', 'Vamos estudar, hoje'],c:0},
+{subject:'Português',q:'Qual é o plural de “cidadão” na norma-padrão?',a:['cidadões', 'cidadãos', 'cidadães', 'cidadans'],c:1},
+{subject:'Português',q:'Qual palavra é oxítona?',a:['médico', 'árvore', 'café', 'lâmpada'],c:2},
+{subject:'Português',q:'“Embora estivesse cansado, estudou.” A palavra “embora” introduz ideia de:',a:['causa', 'concessão', 'finalidade', 'conclusão'],c:1},
+{subject:'Português',q:'Qual é um sinônimo de “rápido”?',a:['lento', 'veloz', 'distante', 'pesado'],c:1},
+{subject:'Português',q:'Em “O livro de Ana”, “de Ana” exerce função de:',a:['adjunto adnominal', 'predicado', 'verbo', 'sujeito'],c:0},
+{subject:'Ciências',q:'Qual estrutura contém o material genético da célula?',a:['Núcleo', 'Parede celular', 'Ribossomo', 'Citoplasma'],c:0},
+{subject:'Ciências',q:'Qual processo permite às plantas produzir glicose usando luz?',a:['Respiração', 'Fotossíntese', 'Digestão', 'Fermentação'],c:1},
+{subject:'Ciências',q:'Qual gás é usado pelas plantas na fotossíntese?',a:['Oxigênio', 'Nitrogênio', 'Gás carbônico', 'Hidrogênio'],c:2},
+{subject:'Ciências',q:'Qual órgão bombeia o sangue pelo corpo?',a:['Pulmão', 'Coração', 'Rim', 'Fígado'],c:1},
+{subject:'Ciências',q:'Qual é o estado físico da água em condições ambientes comuns?',a:['Sólido', 'Líquido', 'Gasoso', 'Plasma'],c:1},
+{subject:'Ciências',q:'Qual planeta é conhecido como Planeta Vermelho?',a:['Vênus', 'Marte', 'Júpiter', 'Mercúrio'],c:1},
+{subject:'Ciências',q:'Qual sistema é responsável principalmente pela digestão dos alimentos?',a:['Digestório', 'Nervoso', 'Respiratório', 'Esquelético'],c:0},
+{subject:'Ciências',q:'Qual força atrai objetos em direção à Terra?',a:['Magnetismo', 'Eletricidade', 'Gravidade', 'Atrito'],c:2},
+{subject:'Ciências',q:'Qual vitamina é produzida pelo corpo com ajuda da luz solar?',a:['Vitamina A', 'Vitamina C', 'Vitamina D', 'Vitamina K'],c:2},
+{subject:'Ciências',q:'Qual é a unidade básica dos seres vivos?',a:['Átomo', 'Célula', 'Tecido', 'Órgão'],c:1},
+{subject:'História',q:'Qual acontecimento marcou o início tradicional da Idade Moderna?',a:['Queda de Roma', 'Queda de Constantinopla', 'Revolução Industrial', 'Independência do Brasil'],c:1},
+{subject:'História',q:'Em que ano ocorreu a Independência do Brasil?',a:['1500', '1789', '1822', '1889'],c:2},
+{subject:'História',q:'Qual civilização construiu as pirâmides de Gizé?',a:['Romana', 'Egípcia', 'Grega', 'Maia'],c:1},
+{subject:'História',q:'A Revolução Francesa começou em:',a:['1492', '1640', '1789', '1914'],c:2},
+{subject:'História',q:'Quem foi o primeiro imperador do Brasil?',a:['Dom Pedro I', 'Dom Pedro II', 'Getúlio Vargas', 'Juscelino Kubitschek'],c:0},
+{subject:'História',q:'A Proclamação da República no Brasil ocorreu em:',a:['1822', '1850', '1889', '1930'],c:2},
+{subject:'História',q:'A escrita cuneiforme está associada principalmente a:',a:['Mesopotâmia', 'Roma', 'Japão', 'Oceania'],c:0},
+{subject:'História',q:'A Segunda Guerra Mundial terminou em:',a:['1939', '1942', '1945', '1950'],c:2},
+{subject:'História',q:'A Lei Áurea, de 1888, está relacionada à:',a:['Independência', 'Abolição da escravidão', 'Proclamação da República', 'Industrialização'],c:1},
+{subject:'História',q:'A democracia ateniense desenvolveu-se na:',a:['Grécia Antiga', 'Roma Antiga', 'Idade Média', 'Revolução Industrial'],c:0},
+{subject:'Geografia',q:'Qual é o maior oceano da Terra?',a:['Atlântico', 'Índico', 'Ártico', 'Pacífico'],c:3},
+{subject:'Geografia',q:'Qual é o maior país da América do Sul em território?',a:['Argentina', 'Brasil', 'Peru', 'Colômbia'],c:1},
+{subject:'Geografia',q:'Qual linha imaginária divide a Terra em hemisférios Norte e Sul?',a:['Meridiano de Greenwich', 'Trópico de Câncer', 'Linha do Equador', 'Trópico de Capricórnio'],c:2},
+{subject:'Geografia',q:'Qual é a capital do Brasil?',a:['São Paulo', 'Rio de Janeiro', 'Brasília', 'Salvador'],c:2},
+{subject:'Geografia',q:'Qual continente possui o maior número de países?',a:['Europa', 'África', 'Oceania', 'América do Sul'],c:1},
+{subject:'Geografia',q:'O clima predominante na região Amazônica é geralmente:',a:['Equatorial', 'Polar', 'Desértico', 'Mediterrâneo'],c:0},
+{subject:'Geografia',q:'Qual é o maior deserto quente do mundo?',a:['Saara', 'Gobi', 'Atacama', 'Kalahari'],c:0},
+{subject:'Geografia',q:'Qual é o rio com maior volume de água do mundo?',a:['Nilo', 'Amazonas', 'Mississipi', 'Danúbio'],c:1},
+{subject:'Geografia',q:'Urbanização é o processo de:',a:['redução das cidades', 'crescimento da população urbana', 'aumento das áreas rurais', 'diminuição da indústria'],c:1},
+{subject:'Geografia',q:'Qual é o ponto cardeal oposto ao leste?',a:['Norte', 'Sul', 'Oeste', 'Nordeste'],c:2},
+{subject:'Inglês',q:'Qual frase está no Present Perfect?',a:['I study every day.', 'I studied yesterday.', 'I have studied today.', 'I am studying now.'],c:2},
+{subject:'Inglês',q:'Qual é o passado de “go”?',a:['goed', 'gone', 'went', 'going'],c:2},
+{subject:'Inglês',q:'“She is reading” está no:',a:['Simple Present', 'Present Continuous', 'Simple Past', 'Present Perfect'],c:1},
+{subject:'Inglês',q:'Qual palavra significa “casa” em inglês?',a:['house', 'horse', 'mouse', 'school'],c:0},
+{subject:'Inglês',q:'Qual é o plural de “child”?',a:['childs', 'children', 'childes', 'childrens'],c:1},
+{subject:'Inglês',q:'Complete: “I ___ a student.”',a:['am', 'is', 'are', 'be'],c:0},
+{subject:'Inglês',q:'Qual frase está no Simple Past?',a:['I play soccer.', 'I am playing soccer.', 'I played soccer.', 'I have played soccer.'],c:2},
+{subject:'Inglês',q:'Qual palavra significa “amanhã”?',a:['yesterday', 'today', 'tomorrow', 'morning'],c:2},
+{subject:'Inglês',q:'Complete: “They ___ happy.”',a:['is', 'am', 'are', 'be'],c:2},
+{subject:'Inglês',q:'Qual é o comparativo correto de “good”?',a:['gooder', 'more good', 'better', 'best'],c:2}
+];
+function fresh(){return {name:'',xp:0,minutes:0,correct:0,answered:0,studyDates:[],sessions:[],tasks:[],quizHistory:[],notes:[],dark:false,createdAt:new Date().toISOString(),avatar:'🎓',photo:''}}
+function loadState(){
+  try{
+    const raw=localStorage.getItem(KEY)||localStorage.getItem('saberia_v4_state');
+    const parsed=raw?JSON.parse(raw):null;
+    if(parsed&&typeof parsed==='object') return {...fresh(),...parsed,studyDates:Array.isArray(parsed.studyDates)?parsed.studyDates:[],sessions:Array.isArray(parsed.sessions)?parsed.sessions:[],tasks:Array.isArray(parsed.tasks)?parsed.tasks:[],quizHistory:Array.isArray(parsed.quizHistory)?parsed.quizHistory:[],notes:Array.isArray(parsed.notes)?parsed.notes:[]};
+  }catch(e){}
+  return fresh();
+}
+let state=loadState();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){toast('Não foi possível salvar agora. Tente uma foto menor ou libere espaço no dispositivo.')}}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2200)}
+function initials(n){return (n||'S').split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase()}
+function dayKey(d=new Date()){return new Date(d).toISOString().slice(0,10)}
+function streak(){
+ let days=[...new Set(state.studyDates)].sort().reverse(); if(!days.length)return 0;
+ let cur=new Date(dayKey()); let count=0;
+ for(let d of days){let x=new Date(d);let diff=Math.round((cur-x)/86400000);if(diff===count){count++}else if(diff<count){}else break}
+ return count
+}
+function avg(){return state.answered?Math.round(state.correct/state.answered*100):0}
+function navItems(){return [['home','⌂','Início'],['study','⏱','Estudar'],['quiz','✓','Quiz'],['tasks','☷','Tarefas'],['progress','▥','Progresso'],['profile','●','Perfil'],['settings','⚙','Config.']]}
+function buildNav(){let items=navItems();document.getElementById('sideNav').innerHTML=items.map(x=>`<button data-nav="${x[0]}" onclick="showPage('${x[0]}')">${x[1]}&nbsp;&nbsp;${x[2]}</button>`).join('');document.getElementById('bottomNav').innerHTML=items.slice(0,5).map(x=>`<button data-nav="${x[0]}" onclick="showPage('${x[0]}')"><span class="bi">${x[1]}</span>${x[2]}</button>`).join('')}
+function showPage(p){document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelectorAll('[data-nav]').forEach(e=>e.classList.toggle('active',e.dataset.nav===p));let item=navItems().find(x=>x[0]===p);document.getElementById('pageTitle').textContent=item?item[2]:'SABERIA';render(p);window.scrollTo(0,0)}
+function render(p){({home:renderHome,study:renderStudy,quiz:renderQuiz,tasks:renderTasks,progress:renderProgress,profile:renderProfile,settings:renderSettings}[p])()}
+function stat(label,value,sub){return `<div class="card stat"><div class="label">${label}</div><div class="value">${value}</div><div class="sub">${sub}</div></div>`}
+function renderHome(){
+ let name=state.name?esc(state.name.split(' ')[0]):'estudante';
+ document.getElementById('page-home').innerHTML=`<div class="hero"><div style="display:flex;align-items:center;gap:14px"><div>${avatarMarkup('profile').replace('profile-avatar','home-avatar')}</div><div><h2>Olá, ${name} 👋</h2><p>Seu espaço para estudar, evoluir e conquistar seus objetivos.</p></div></div><button class="primary" onclick="showPage('study')">Começar a estudar</button></div>
+ <div class="stats">${stat('🔥 Sequência',streak(),'dias estudando')}${stat('⏱️ Minutos',state.minutes,'estudados')}${stat('📊 Média',avg()+'%','de respostas corretas')}${stat('⭐ Pontos',state.xp,'XP acumulado')}</div>
+ <div class="grid2"><div class="card section"><div class="section-head"><h3>Suas matérias</h3><button class="pill" onclick="showPage('progress')">Ver tudo</button></div><div class="subjects">${subjects.map(s=>{let h=state.quizHistory.filter(x=>x.subject===s);let a=h.length?Math.round(h.reduce((q,x)=>q+x.score,0)/h.length):0;return `<div class="subject"><div class="subject-row"><strong>${s}</strong><span class="muted">${a}%</span></div><div class="bar"><i style="width:${a}%"></i></div></div>`}).join('')}</div></div>
+ <div class="card section"><div class="section-head"><h3>Próximas tarefas</h3><button class="pill" onclick="showPage('tasks')">Gerenciar</button></div>${state.tasks.filter(t=>!t.done).slice(0,4).map(t=>`<div class="task"><button class="check" onclick="toggleTask('${t.id}')"></button><span>${esc(t.title)}</span></div>`).join('')||'<div class="empty">Nenhuma tarefa pendente. Você está em dia! 🎉</div>'}</div></div>
+ <div class="card section" style="margin-top:18px"><div class="section-head"><h3>Continue aprendendo</h3><span class="muted">Alia está pronta para ajudar</span></div><button class="primary" onclick="toggleAlia()">Perguntar para a Alia ✦</button></div>`;
+}
+let timer={sec:1500,running:false,handle:null};
+function renderStudy(){document.getElementById('page-study').innerHTML=`<div class="grid2"><div class="card panel"><div class="section-head"><h3>Foco</h3><span class="pill">Sessão de estudo</span></div><div class="timer" id="timer">${fmt(timer.sec)}</div><div class="timer-controls"><button class="pill" onclick="setTimer(5)">5 min</button><button class="pill" onclick="setTimer(15)">15 min</button><button class="pill" onclick="setTimer(25)">25 min</button></div><div style="height:18px"></div><div class="timer-controls"><button class="primary" onclick="toggleTimer()">${timer.running?'Pausar':'Iniciar'}</button><button class="icon-btn" onclick="resetTimer()">↺</button></div><p class="muted" style="text-align:center;margin-top:18px">Ao concluir, os minutos e o XP são registrados automaticamente.</p></div>
+<div class="card panel"><h3>Como estudar melhor</h3><div class="task"><div class="badge">1</div><span>Escolha uma matéria e defina um objetivo.</span></div><div class="task"><div class="badge">2</div><span>Use o cronômetro para manter o foco.</span></div><div class="task"><div class="badge">3</div><span>Faça um quiz depois e acompanhe sua média.</span></div><div class="task"><div class="badge">4</div><span>Peça ajuda à Alia quando travar.</span></div></div></div>`}
+function fmt(s){let m=Math.floor(s/60),sec=s%60;return String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0')}
+function setTimer(min){timer.sec=min*60;timer.running=false;clearInterval(timer.handle);renderStudy()}
+function toggleTimer(){if(timer.running){timer.running=false;clearInterval(timer.handle);renderStudy();return}timer.running=true;timer.handle=setInterval(()=>{timer.sec--;let el=document.getElementById('timer');if(el)el.textContent=fmt(timer.sec);if(timer.sec<=0)finishSession()},1000);renderStudy()}
+function resetTimer(){setTimer(25)}
+function finishSession(){clearInterval(timer.handle);timer.running=false;let mins=25;state.minutes+=mins;state.xp+=mins;state.studyDates.push(dayKey());state.sessions.push({date:new Date().toISOString(),minutes:mins});save();toast(`Sessão concluída! +${mins} XP`);timer.sec=1500;renderStudy();refreshHomeIfNeeded()}
+function refreshHomeIfNeeded(){if(document.getElementById('page-home').classList.contains('active'))renderHome()}
+let quiz={list:[],i:0,score:0,locked:false,subject:'todas',count:5};
+function startQuiz(){
+ const subject=document.getElementById('quizSubject')?.value||'todas';
+ const count=Number(document.getElementById('quizCount')?.value||5);
+ const pool=subject==='todas'?[...questions]:questions.filter(q=>q.subject===subject);
+ const shuffled=pool.sort(()=>Math.random()-.5);
+ if(shuffled.length<count){toast(`Não há ${count} questões disponíveis para essa matéria.`);return}
+ quiz={list:shuffled.slice(0,count),i:0,score:0,locked:false,subject,count};
+ renderQuiz();
+}
+function quizSetup(){
+ return `<div class="card panel"><div class="hero"><div><h2>Quiz inteligente</h2><p>Escolha a matéria, a quantidade e comece.</p></div><span class="pill">+ XP</span></div><div class="quiz-start"><div><label class="quiz-select-label">Matéria</label><select class="quiz-select" id="quizSubject">${[['todas','Todas as matérias'],...subjects.map(x=>[x,x])].map(x=>`<option value="${esc(x[0])}" ${quiz.subject===x[0]?'selected':''}>${esc(x[1])}</option>`).join('')}</select></div><div><label class="quiz-select-label">Quantidade de questões</label><select class="quiz-select" id="quizCount">${[5,10].map(n=>`<option value="${n}" ${quiz.count===n?'selected':''}>${n} questões</option>`).join('')}</select></div><button class="primary" onclick="startQuiz()">Começar quiz</button></div><div class="empty" style="padding-bottom:0">Sua média começa em 0% e só muda depois que você responder.</div></div>`;
+}
+function renderQuiz(){
+ let el=document.getElementById('page-quiz');
+ if(!quiz.list.length){el.innerHTML=quizSetup();return}
+ if(quiz.i>=quiz.list.length){
+  let total=quiz.list.length,score=Math.round(quiz.score/total*100);
+  state.xp+=score;state.correct+=quiz.score;state.answered+=total;state.studyDates.push(dayKey());
+  state.quizHistory.push({date:new Date().toISOString(),score,subject:quiz.subject==='todas'?'Geral':quiz.subject});save();
+  const finishedSubject=quiz.subject==='todas'?'Todas as matérias':quiz.subject;
+  quiz.list=[];
+  el.innerHTML=`<div class="card panel" style="text-align:center"><div style="font-size:60px">🎉</div><h2>Quiz concluído!</h2><p>Você acertou <b>${quiz.score}</b> de ${total} questões.</p><p class="muted">${esc(finishedSubject)}</p><div class="stat" style="max-width:260px;margin:20px auto"><div class="label">Resultado</div><div class="value">${score}%</div><div class="sub">+${score} XP</div></div><button class="primary" onclick="renderQuiz()">Escolher outra matéria</button></div>`;
+  return
+ }
+ let q=quiz.list[quiz.i],total=quiz.list.length;
+ el.innerHTML=`<div class="card panel"><div class="section-head"><span class="pill">${esc(q.subject)}</span><span class="muted">${quiz.i+1}/${total}</span></div><div class="bar" style="margin:0 0 18px"><i style="width:${((quiz.i)/total)*100}%"></i></div><div class="quiz-q">${esc(q.q)}</div><div class="answers">${q.a.map((a,i)=>`<button class="answer" onclick="answerQuiz(${i})">${String.fromCharCode(65+i)}. ${esc(a)}</button>`).join('')}</div></div>`
+}
+
+function celebrateCorrect(){
+  const layer=document.createElement('div');
+  layer.className='confetti-layer';
+  const pieces=window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:28;
+  for(let i=0;i<pieces;i++){
+    const p=document.createElement('i');
+    p.className='confetti-piece';
+    p.style.left=(48+Math.random()*8)+'%';
+    p.style.setProperty('--x',((Math.random()-.5)*72)+'vw');
+    p.style.setProperty('--y',(55+Math.random()*38)+'vh');
+    p.style.setProperty('--r',((Math.random()-.5)*900)+'deg');
+    p.style.setProperty('--fall',(650+Math.random()*450)+'ms');
+    p.style.background=['#165DFF','#7B61FF','#22B573','#FFC857','#FF6B6B'][i%5];
+    p.style.width=(5+Math.random()*4)+'px';
+    p.style.height=(7+Math.random()*7)+'px';
+    layer.appendChild(p);
+  }
+  document.body.appendChild(layer);
+  setTimeout(()=>layer.remove(),1200);
+}
+function answerQuiz(i){if(quiz.locked)return;quiz.locked=true;let q=quiz.list[quiz.i];document.querySelectorAll('.answer').forEach((b,n)=>{if(n===q.c)b.classList.add('correct');if(n===i&&i!==q.c)b.classList.add('wrong')});if(i===q.c){quiz.score++;celebrateCorrect();toast('Acertou! +1');}else toast('Quase! Continue tentando.');setTimeout(()=>{quiz.i++;quiz.locked=false;renderQuiz()},650)}
+function renderTasks(){document.getElementById('page-tasks').innerHTML=`<div class="card panel"><div class="section-head"><h3>Minhas tarefas</h3><button class="primary" onclick="addTask()">+ Nova tarefa</button></div>${state.tasks.map(t=>`<div class="task"><button class="check ${t.done?'done':''}" onclick="toggleTask('${t.id}')">${t.done?'✓':''}</button><span style="flex:1" class="${t.done?'done':''}">${esc(t.title)}</span><button class="icon-btn" onclick="deleteTask('${t.id}')">×</button></div>`).join('')||'<div class="empty">Crie sua primeira tarefa de estudo.</div>'}</div>`}
+function addTask(){openModal(`<div class="modal-head"><h3>Nova tarefa</h3><button class="icon-btn" onclick="closeModal()">×</button></div><div class="form" style="margin-top:18px"><input class="input" id="taskTitle" placeholder="Ex.: estudar equações"><button class="primary" onclick="saveTask()">Adicionar</button></div>`);setTimeout(()=>document.getElementById('taskTitle')?.focus(),50)}
+function saveTask(){let v=document.getElementById('taskTitle').value.trim();if(!v)return;state.tasks.unshift({id:crypto.randomUUID(),title:v,done:false});save();closeModal();renderTasks();toast('Tarefa adicionada')}
+function toggleTask(id){let t=state.tasks.find(x=>x.id===id);if(t){t.done=!t.done;save();renderTasks();if(document.getElementById('page-home').classList.contains('active'))renderHome()}}
+function deleteTask(id){state.tasks=state.tasks.filter(x=>x.id!==id);save();renderTasks()}
+function renderProgress(){let total=state.answered;document.getElementById('page-progress').innerHTML=`<div class="stats">${stat('Questões',total,total?'respondidas':'ainda nenhuma')}${stat('Acertos',state.correct,'questões corretas')}${stat('Média',avg()+'%','desempenho geral')}${stat('Sessões',state.sessions.length,'sessões concluídas')}</div><div class="card section" style="margin-top:18px"><div class="section-head"><h3>Desempenho por matéria</h3></div>${subjects.map(s=>{let h=state.quizHistory.filter(x=>x.subject===s);let a=h.length?Math.round(h.reduce((q,x)=>q+x.score,0)/h.length):0;return `<div style="margin:18px 0"><div class="subject-row"><b>${s}</b><span class="muted">${a}%</span></div><div class="bar"><i style="width:${a}%"></i></div></div>`}).join('')}</div><div class="card section" style="margin-top:18px"><h3>Histórico recente</h3>${state.sessions.slice(-8).reverse().map(x=>`<div class="task"><span>⏱️ Sessão de estudo</span><span class="muted">${x.minutes} min · ${new Date(x.date).toLocaleDateString('pt-BR')}</span></div>`).join('')||'<div class="empty">Seu histórico aparecerá aqui.</div>'}</div>`}
+function achievements(){let a=[];if(state.minutes>=25)a.push(['⏱️','Primeiro foco','Conclua sua primeira sessão']);if(state.xp>=100)a.push(['⭐','100 XP','Alcance 100 pontos']);if(streak()>=3)a.push(['🔥','3 dias','Estude por 3 dias seguidos']);if(state.correct>=10)a.push(['🎯','10 acertos','Acerte 10 questões']);return a}
+function avatarMarkup(size='profile'){let cls=size==='profile'?'profile-avatar':'avatar';if(state.photo)return `<div class="${cls}"><img src="${state.photo}" alt="Foto de perfil"></div>`;return `<div class="${cls}">${esc(state.avatar||initials(state.name||'Estudante'))}</div>`}
+function renderProfile(){let name=state.name||'Estudante';document.getElementById('page-profile').innerHTML=`<div class="card panel"><div class="profile-avatar-wrap">${avatarMarkup('profile')}<div style="flex:1;min-width:190px"><h2 style="margin:0">${esc(name)}</h2><p class="muted">Estudante SABERIA</p><div class="profile-actions"><button class="pill" onclick="document.getElementById('profilePhoto').click()">📷 Adicionar foto</button><input id="profilePhoto" type="file" accept="image/png,image/jpeg,image/webp" hidden onchange="changeProfilePhoto(event)"><button class="pill" onclick="removeProfilePhoto()">Remover foto</button></div></div></div><div style="margin-top:20px"><b>Criar avatar</b><div class="muted" style="font-size:13px;margin-top:4px">Escolha um avatar para usar quando não quiser uma foto.</div><div class="avatar-options">${['🎓','🧠','🚀','📚','⭐','🧪','🎨','🌎','💡','🦊'].map(x=>`<button class="avatar-choice ${!state.photo&&state.avatar===x?'selected':''}" onclick="chooseAvatar('${x}')">${x}</button>`).join('')}</div></div></div><div class="card section" style="margin-top:18px"><div class="section-head"><h3>Conquistas</h3><span class="muted">${achievements().length}</span></div>${achievements().map(a=>`<div class="achievement"><div class="badge">${a[0]}</div><div><b>${a[1]}</b><div class="muted">${a[2]}</div></div></div>`).join('')||'<div class="empty">Suas primeiras conquistas aparecerão conforme você estudar.</div>'}</div>`}
+function chooseAvatar(x){state.avatar=x;state.photo='';save();updateChrome();renderProfile();toast('Avatar atualizado')}
+function changeProfilePhoto(e){
+ const f=e.target.files?.[0];if(!f)return;
+ if(!/^image\/(png|jpeg|webp)$/.test(f.type)){toast('Escolha uma imagem PNG, JPG ou WebP.');return}
+ if(f.size>8*1024*1024){toast('Escolha uma foto de até 8 MB.');return}
+ const reader=new FileReader();
+ reader.onload=()=>{
+   const img=new Image();
+   img.onload=()=>{
+     const max=512, scale=Math.min(1,max/Math.max(img.width,img.height));
+     const c=document.createElement('canvas');c.width=Math.max(1,Math.round(img.width*scale));c.height=Math.max(1,Math.round(img.height*scale));
+     const ctx=c.getContext('2d');ctx.drawImage(img,0,0,c.width,c.height);
+     state.photo=c.toDataURL('image/jpeg',0.78);save();updateChrome();renderProfile();toast('Foto de perfil atualizada');
+   };
+   img.onerror=()=>toast('Não foi possível carregar essa imagem.');img.src=reader.result;
+ };
+ reader.readAsDataURL(f);
+}
+function removeProfilePhoto(){state.photo='';save();updateChrome();renderProfile();toast('Foto removida')}
+
+function renderSettings(){document.getElementById('page-settings').innerHTML=`<div class="settings-grid"><div class="card setting"><h3>Perfil</h3><p class="muted">Nome, foto e avatar do seu perfil.</p><button class="pill" onclick="showPage('profile')">Abrir meu perfil</button><p class="muted" style="margin-bottom:8px">Nome exibido no SABERIA.</p><input class="input" id="nameInput" value="${esc(state.name)}" placeholder="Seu nome"><button class="primary" style="margin-top:10px" onclick="saveName()">Salvar nome</button></div><div class="card setting"><h3>Aparência</h3><p class="muted">Escolha como o SABERIA aparece.</p><button class="pill" onclick="toggleDark()">${state.dark?'☀️ Modo claro':'🌙 Modo escuro'}</button></div><div class="card setting"><h3>Seus dados</h3><p class="muted">Faça backup ou restaure seu progresso.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="pill" onclick="exportData()">Exportar</button><button class="pill" onclick="document.getElementById('importFile').click()">Importar</button><input id="importFile" type="file" accept="application/json" hidden onchange="importData(event)"></div></div><div class="card setting"><h3>Recomeçar</h3><p class="muted">Apaga o progresso deste dispositivo.</p><button style="background:#FFF0F0;color:var(--danger);padding:10px 13px;border-radius:10px;font-weight:800" onclick="resetData()">Zerar progresso</button></div></div>`}
+function saveName(){state.name=document.getElementById('nameInput').value.trim();save();updateChrome();toast('Perfil atualizado');renderSettings()}
+function updateChrome(){let n=state.name||'Estudante';document.getElementById('sideName').textContent=n;const sa=document.getElementById('sideAvatar');if(state.photo){sa.innerHTML=`<img src="${state.photo}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`}else{sa.textContent=state.avatar||initials(n)}document.body.classList.toggle('dark',state.dark)}
+function toggleDark(){state.dark=!state.dark;save();updateChrome();renderSettings()}
+function exportData(){let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='saberia-backup.json';a.click();URL.revokeObjectURL(a.href)}
+function importData(e){
+ let f=e.target.files?.[0];if(!f)return;
+ let r=new FileReader();r.onload=()=>{try{
+   const incoming=JSON.parse(r.result);
+   if(!incoming||typeof incoming!=='object'||!Array.isArray(incoming.tasks)||!Array.isArray(incoming.quizHistory))throw Error();
+   state={...fresh(),...incoming,studyDates:Array.isArray(incoming.studyDates)?incoming.studyDates:[],sessions:Array.isArray(incoming.sessions)?incoming.sessions:[],tasks:Array.isArray(incoming.tasks)?incoming.tasks:[],quizHistory:Array.isArray(incoming.quizHistory)?incoming.quizHistory:[],notes:Array.isArray(incoming.notes)?incoming.notes:[]};
+   save();updateChrome();renderHome();renderTasks();renderProgress();renderProfile();showPage('home');toast('Backup restaurado');
+ }catch{toast('Arquivo de backup inválido.')}e.target.value=''};r.readAsText(f)
+}
+function resetData(){if(confirm('Tem certeza? Todo o progresso deste dispositivo será zerado.')){state=fresh();save();updateChrome();showPage('home');toast('Progresso zerado')}}
+function openModal(html){document.getElementById('modalBox').innerHTML=html;document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+function toggleAlia(){document.getElementById('aliaWindow').classList.toggle('open');if(document.getElementById('aliaWindow').classList.contains('open')&&!document.getElementById('aliaMessages').children.length)addMsg('bot','Oi! Eu sou a Alia ✦. Posso explicar conteúdos, montar exercícios e ajudar você a estudar. O que você quer aprender?')}
+function addMsg(who,text){let box=document.getElementById('aliaMessages');let d=document.createElement('div');d.className='msg '+who;d.textContent=text;box.appendChild(d);box.scrollTop=box.scrollHeight}
+async function sendAlia(){let input=document.getElementById('aliaInput'),text=input.value.trim();if(!text)return;input.value='';addMsg('user',text);addMsg('bot','Pensando…');let loading=document.getElementById('aliaMessages').lastChild;try{let res=await fetch('/api/alia',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,name:state.name||'estudante',context:{minutes:state.minutes,average:avg(),xp:state.xp}})});if(!res.ok)throw Error();let data=await res.json();loading.remove();addMsg('bot',data.reply||fallbackAlia(text))}catch{loading.remove();addMsg('bot',fallbackAlia(text))}}
+function fallbackAlia(t){let x=t.toLowerCase();if(x.includes('porcent')||x.includes('%'))return 'Para calcular uma porcentagem, transforme a porcentagem em decimal e multiplique pelo valor. Ex.: 20% de 50 = 0,20 × 50 = 10.';if(x.includes('dna'))return 'DNA é a molécula que armazena as informações genéticas dos seres vivos.';if(x.includes('equação'))return 'Em uma equação, tente deixar a incógnita sozinha. Ex.: x + 7 = 15 → x = 8.';if(x.includes('fotossínt'))return 'Na fotossíntese, plantas usam luz, água e gás carbônico para produzir glicose e liberar oxigênio.';return 'Ainda estou no modo local. Tente perguntar sobre porcentagem, DNA, equações ou fotossíntese. Quando o backend da Alia estiver configurado, poderei responder muito mais coisas.'}
+let authMode='login';
+function switchAuth(mode){authMode=mode;document.getElementById('authLoginTab').classList.toggle('active',mode==='login');document.getElementById('authCreateTab').classList.toggle('active',mode==='create');renderAuthForm();bindAuthEnter()}
+function renderAuthForm(){
+ const box=document.getElementById('authForm');
+ if(authMode==='login') box.innerHTML=`<div class="auth-form"><input class="input" id="authEmail" type="email" autocomplete="email" placeholder="E-mail"><div class="password-row"><input class="input" id="authPassword" type="password" autocomplete="current-password" placeholder="Senha"><button class="password-toggle" type="button" onclick="togglePassword('authPassword',this)" aria-label="Mostrar senha">Mostrar</button></div><button class="primary" onclick="localLogin()">Entrar</button><button class="pill" onclick="switchAuth('create')">Ainda não tenho conta</button></div>`;
+ else box.innerHTML=`<div class="auth-form"><input class="input" id="authName" autocomplete="name" placeholder="Seu nome"><input class="input" id="authEmail" type="email" autocomplete="email" placeholder="E-mail"><div class="password-row"><input class="input" id="authPassword" type="password" autocomplete="new-password" placeholder="Senha (mínimo 6 caracteres)"><button class="password-toggle" type="button" onclick="togglePassword('authPassword',this)" aria-label="Mostrar senha">Mostrar</button></div><button class="primary" onclick="localCreate()">Criar minha conta</button><button class="pill" onclick="switchAuth('login')">Já tenho uma conta</button></div>`;
+}
+function bindAuthEnter(){document.querySelectorAll('#authForm input').forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();authMode==='login'?localLogin():localCreate()}}))}
+function togglePassword(id,btn){const input=document.getElementById(id);if(!input)return;const show=input.type==='password';input.type=show?'text':'password';btn.textContent=show?'Ocultar':'Mostrar';btn.setAttribute('aria-label',show?'Ocultar senha':'Mostrar senha')}
+function validEmail(email){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)}
+function showAuth(){document.getElementById('authGate').classList.add('open');switchAuth('login');bindAuthEnter();setTimeout(()=>document.getElementById('authEmail')?.focus(),50)}
+function hideAuth(){document.getElementById('authGate').classList.remove('open')}
+function getAccounts(){try{return JSON.parse(localStorage.getItem('saberia_accounts_v2')||'{}')}catch{return {}}}
+function saveAccounts(a){localStorage.setItem('saberia_accounts_v2',JSON.stringify(a))}
+function localCreate(){
+ const name=document.getElementById('authName').value.trim(),email=document.getElementById('authEmail').value.trim().toLowerCase(),password=document.getElementById('authPassword').value;
+ if(!name||name.length>60||!validEmail(email)||password.length<6){toast('Preencha um nome válido, e-mail válido e senha com pelo menos 6 caracteres.');return}
+ const accounts=getAccounts();
+ if(accounts[email]){toast('Essa conta já existe. Toque em Entrar para acessar.');switchAuth('login');document.getElementById('authEmail').value=email;return}
+ accounts[email]={name,password};saveAccounts(accounts);state.name=name;state.authenticated=true;state.email=email;save();hideAuth();updateChrome();renderHome();toast('Conta criada com sucesso!')}
+async function localLogin(){
+ const email=document.getElementById('authEmail').value.trim().toLowerCase(),password=document.getElementById('authPassword').value;
+ const accounts=getAccounts();let account=accounts[email];
+ // Migrate the old single-account format when present.
+ if(!account){try{const old=JSON.parse(localStorage.getItem('saberia_account_v1')||'null');if(old&&old.email===email){account={name:old.name,password:old.password};accounts[email]=account;saveAccounts(accounts)}}catch{}}
+ if(!account||account.password!==password){toast('E-mail ou senha não conferem. Se você acabou de criar a conta, use o mesmo e-mail e senha na aba Entrar.');return}
+ state.name=account.name;state.authenticated=true;state.email=email;save();hideAuth();updateChrome();renderHome();toast('Bem-vindo de volta!')}
+function boot(){buildNav();updateChrome();renderHome();renderStudy();renderQuiz();renderTasks();renderProgress();renderProfile();renderSettings();if('serviceWorker' in navigator)navigator.serviceWorker.register('./service-worker.js').catch(()=>{});if(!state.authenticated)setTimeout(showAuth,250)}
+boot();
+</script>
+
+<script>
+/* SABERIA splash: quick fade-in -> star glow + soft chime -> fade-out */
+(function(){
+  const splash = document.getElementById('saberiaSplash');
+  if(!splash) return;
+
+  function softChime(){
+    try{
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if(!AC) return;
+      const ctx = new AC();
+      const now = ctx.currentTime;
+      const gain = ctx.createGain();
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.055, now + 0.035);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.58);
+      gain.connect(ctx.destination);
+
+      const o1 = ctx.createOscillator();
+      const o2 = ctx.createOscillator();
+      o1.type='sine'; o2.type='sine';
+      o1.frequency.setValueAtTime(740, now);
+      o1.frequency.exponentialRampToValueAtTime(988, now + 0.22);
+      o2.frequency.setValueAtTime(988, now + 0.05);
+      o2.frequency.exponentialRampToValueAtTime(1318, now + 0.32);
+      o1.connect(gain); o2.connect(gain);
+      o1.start(now); o2.start(now + 0.03);
+      o1.stop(now + 0.62); o2.stop(now + 0.62);
+      setTimeout(()=>ctx.close().catch(()=>{}), 800);
+    }catch(e){}
+  }
+
+  const start = performance.now();
+  setTimeout(()=>{
+    splash.classList.add('star-on');
+    softChime();
+  }, 760);
+
+  setTimeout(()=>{
+    splash.classList.add('splash-out');
+    setTimeout(()=>splash.remove(), 500);
+  }, 1900);
+
+  // If browser blocks audio on cold start, retry on the first user interaction
+  // only when the splash is still visible.
+  let retried=false;
+  function retryAudio(){
+    if(retried || splash.classList.contains('splash-out')) return;
+    retried=true;
+    softChime();
+    window.removeEventListener('pointerdown', retryAudio);
+    window.removeEventListener('touchstart', retryAudio);
+    window.removeEventListener('keydown', retryAudio);
+  }
+  window.addEventListener('pointerdown', retryAudio, {once:true});
+  window.addEventListener('touchstart', retryAudio, {once:true});
+  window.addEventListener('keydown', retryAudio, {once:true});
+})();
+</script>
+
+</body>
+</html>
